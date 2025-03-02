@@ -1,28 +1,59 @@
-const header = document.querySelector("header");
+const menuButtons = document.querySelectorAll('.navbar :where(#menu-close-button, #menu-open-button)');
 
-window.addEventListener("scroll", function(){
-	header.classList.toggle("sticky", window.scrollY > 0);
-
-})
-
-let menu = document.querySelector('#menu-icon');
-let navbar = document.querySelector('.navbar');
-
-menu.onclick = () => {
-	menu.classList.toggle('bx-x');
-	navbar.classList.toggle('open');
+function handleResize() {
+  if (window.innerWidth > 900) {
+	menuButtons.forEach(button => button.style.display = 'none');
+  } else {
+	menuButtons.forEach(button => button.style.display = 'block');
+  }
 }
 
-window.onscroll = () => {
-	menu.classList.remove('bx-x');
-	navbar.classList.remove('open');
-}
+// Chama a função no carregamento da página
+handleResize();
 
-const sr = ScrollReveal ({
-	distance: '30px', 
-	duration: 2500,
-	reset: true
+// Adiciona um listener para o evento de redimensionamento da janela
+window.addEventListener('resize', handleResize);
+
+const menuOpenButton = document.querySelector("#menu-open-button");
+const menuCloseButton = document.querySelector("#menu-close-button");
+const navLinks = document.querySelectorAll(".nav-menu .nav-link");
+menuOpenButton.addEventListener("click", () => {
+	
+document.body.classList.toggle("show-mobile-menu")
+});
+menuCloseButton.addEventListener("click", () => menuOpenButton.click());
+
+navLinks.forEach(link => {
+	link.addEventListener("click", () => menuOpenButton.click());
 })
-sr.reveal('.home-text',{delay:200, origin:'left'});
-sr.reveal('.home-img',{delay:200, origin:'right'});
-sr.reveal('.container, .about, .menu, .contact',{delay:200, origin:'bottom'});
+
+const swiper = new Swiper('.slider-wrapper', {
+
+loop: true,
+spaceBetween:25,
+grabCursor:true,
+// If we need pagination
+pagination: {
+el: '.swiper-pagination',
+clickable:true,
+dynamicBullets:true,
+},
+
+// Navigation arrows
+navigation: {
+nextEl: '.swiper-button-next',
+prevEl: '.swiper-button-prev',
+},
+
+breakpoints:{
+0: {
+	slidesPerView:1
+},
+768: {
+	slidesPerView:2
+},
+1024: {
+	slidesPerView:3
+}
+}
+});
