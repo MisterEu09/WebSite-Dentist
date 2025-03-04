@@ -204,8 +204,15 @@ header .navbar{
     max-width: 500px;
     margin-right: 30px;
 }
-.about-image, .hero-image{max-width: 35vw;
-    border-radius: 50%;}
+@media (max-width: 426px) {
+    .about-section .about-image-wrapper .about-image {
+        max-width: 100%;
+    }
+}
+.about-image, .hero-image{    width: 400px;
+    height: 400px;
+    object-fit: cover;
+    border-radius: var(--border-radius-circle);}
 
 /*Tratamento Section*/
 
@@ -270,11 +277,6 @@ header .navbar{
     align-items: center;
     justify-content: space-between;
 }
-
-.about-image-wrapper {
-    width: 45%;
-}
-
 
 .about-details {
     width: 50%;

@@ -29,7 +29,7 @@
     
 }
 
-@media screen and (max-width:1024px) {
+@media screen and (max-width:1024px) and (min-width: 769px){
     .hero-details{    max-width: 50vw;}
     .menu-section  .menu-list{
         gap: 60px;
@@ -98,10 +98,7 @@
     
 }
 
-    .hero-section .hero-image-wrapper{
-        max-width: 270px;
-        margin-right: 0;
-    }
+
     .hero-section .hero-details :is(.subtitle, .description), .about-section .about-details, .contact-section, .contact-form{
         max-width: 100%;
     }
@@ -171,8 +168,30 @@
     .hero-section .hero-details .title {
         font-size: 2.7rem;
     }
+    .about-details .text {
+        width: auto;
+        font-size: 1rem;
+        line-height: 1.8;
+        color: #555;
+        margin-bottom: 30px;
+    }
+    .about-details {
+        width: auto;
+    }
+    .hero-details {
+        width: auto;
+    }
 }
 @media screen and (max-width:321px) {
 .c-mainbox {
     width: 80vw;
-}}
+}
+    .about-image, .hero-image {
+        width: 290px;
+        height: 290px;
+    }
+    .hero-section .hero-image-wrapper {
+
+        margin-right: 0;
+    }
+}
